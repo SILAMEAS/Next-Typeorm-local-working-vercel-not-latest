@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -19,8 +19,8 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-gray-200 hidden md:block">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Hello, I`m Sila developer!. You can contact me if you want to build
+            your website
           </p>
           <div className="flex-col md:flex-row hidden md:flex gap-5">
             <Link

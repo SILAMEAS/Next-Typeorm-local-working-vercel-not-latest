@@ -1,33 +1,75 @@
-import { RxHome, RxPerson, RxDashboard, RxClipboard } from "react-icons/rx";
+import { RxClipboard, RxDashboard, RxHome, RxPerson } from "react-icons/rx";
 
 export const SkillData = [
+  {
+    name: "Uploadthing ",
+    Image: "/uploadthing.jpg",
+    width: 120,
+    height: 120,
+  },
+  {
+    name: "Posgress db",
+    Image: "/postges.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "NativeBase",
+    Image: "/native-base.jpg",
+    width: 80,
+    height: 80,
+  },
   {
     name: "Html 5",
     Image: "/html.png",
     width: 80,
     height: 80,
+    type: "ForntEnd",
   },
   {
     name: "Css",
     Image: "/css.png",
     width: 80,
     height: 80,
+    type: "Style",
   },
   {
     name: "JavaScript",
     Image: "/js.png",
     width: 65,
     height: 65,
+    type: "Backend",
   },
   {
     name: "Tailwind Css",
     Image: "/tailwind.png",
     width: 80,
     height: 80,
+    type: "Style",
+  },
+  {
+    name: "Kinde",
+    Image: "/kinde.png",
+    width: 80,
+    height: 80,
+    type: "Third party",
+  },
+  {
+    name: "Mui",
+    Image: "/mui.png",
+    width: 80,
+    height: 80,
+    type: "Style",
   },
   {
     name: "React",
     Image: "/react.png",
+    width: 80,
+    height: 80,
+  },
+  {
+    name: "React Native",
+    Image: "/react-native.png",
     width: 80,
     height: 80,
   },
@@ -51,14 +93,14 @@ export const SkillData = [
     height: 80,
   },
   {
-    name: "Framer Motion",
-    Image: "/framer.png",
+    name: "Spring boot",
+    Image: "/springboot.jpg",
     width: 80,
     height: 80,
   },
   {
-    name: "Stripe Payment",
-    Image: "/stripe.webp",
+    name: "Prisma orm",
+    Image: "/prisma.jpg",
     width: 80,
     height: 80,
   },
@@ -80,36 +122,55 @@ export const Socials = [
   {
     name: "Discord",
     src: "/instagram.svg",
+    url: "",
   },
   {
     name: "Facebook",
     src: "/facebook.svg",
+    url: "https://www.facebook.com/share/yKpSDmXvj5uZ5gsg/?mibextid=LQQJ4d",
   },
   {
     name: "Instagram",
     src: "/discord.svg",
+    url: "",
   },
 ];
 export const Projects = [
   {
-    title: "Modern Nextjs Website",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    src: "/NextWebsite.png",
+    title: "Clone Trello",
+    text: "Modern Nextjs Website Intergrate With Kinde Uploading",
+    src: "/trello.png",
+    url: "https://clone-trello-copy.vercel.app/",
   },
   {
-    title: "Space Themed Website",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    src: "/SpaceWebsite.png",
+    title: "Intergrate API in Spotify",
+    text: "Modern Nextjs Website Intergrate With Kinde Uploading",
+    src: "/trello.png",
+    url: "https://clone-trello-copy.vercel.app/",
   },
   {
-    title: "Modern Nextjs Portfolio",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    src: "/WebPortfolio.png",
+    title: "Clone Restaurant Role end user",
+    text: "has 3 roles such as end user, admin, owner restaurant. Technologo : Next.js, Spring boot, Mui, Taiwind, React-Hoo-Form ...",
+    src: "/restaurant.png",
+    url: "https://next-js-wow-now.vercel.app",
   },
   {
-    title: "Matrix themed Website",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-    src: "/Matrix.png",
+    title: "Clone Restaurant Role owner",
+    text: "has 3 roles such as end user, admin, owner restaurant. Technologo : Next.js, Spring boot, Mui, Taiwind, React-Hoo-Form ...",
+    src: "/admin-restaurant.png",
+    url: "https://next-js-wow-now.vercel.app",
+  },
+  {
+    title: "Farmskin Cambodia",
+    text: "Farmskin Cambodia is real application e-commerce website. Using Next.js Mui Swiper Spring boot",
+    src: "/farmskin.png",
+    url: "https://www.farmskinkh.com/",
+  },
+  {
+    title: "Admin Farmskin Cambodia",
+    text: "Farmskin Cambodia is real application e-commerce website. Using Next.js Mui Swiper Spring boot",
+    src: "/admin-farmskin.png",
+    url: "https://admin.farmskinkh.com/login",
   },
 ];
 
