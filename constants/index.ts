@@ -120,9 +120,9 @@ export const SkillData = [
 
 export const Socials = [
   {
-    name: "Discord",
-    src: "/instagram.svg",
-    url: "",
+    name: "GitHub",
+    src: "/git.svg",
+    url: "https://github.com/SILAMEAS",
   },
   {
     name: "Facebook",
@@ -131,11 +131,17 @@ export const Socials = [
   },
   {
     name: "Instagram",
-    src: "/discord.svg",
-    url: "",
+    src: "/instagram.svg",
+    url: "https://www.instagram.com/nex_axois?igsh=MWc2aXZ0ZWVqdThoMA%3D%3D&utm_source=qr",
   },
 ];
 export const Projects = [
+  {
+    title: "Static Website HTML/CSS/JS",
+    text: "it just static website",
+    src: "/e5.png",
+    url: "https://e5project.netlify.app/project_e5(homepage,comuter,watch)/",
+  },
   {
     title: "Clone Trello",
     text: "Modern Nextjs Website Intergrate With Kinde Uploading",
@@ -143,21 +149,15 @@ export const Projects = [
     url: "https://clone-trello-copy.vercel.app/",
   },
   {
-    title: "Intergrate API in Spotify",
-    text: "Modern Nextjs Website Intergrate With Kinde Uploading",
-    src: "/trello.png",
-    url: "https://clone-trello-copy.vercel.app/",
+    title: "Integrate API in Spotify",
+    text: "using spotify api dev",
+    src: "/spotify.png",
+    url: "https://sila-clone.netlify.app/",
   },
   {
     title: "Clone Restaurant Role end user",
     text: "has 3 roles such as end user, admin, owner restaurant. Technologo : Next.js, Spring boot, Mui, Taiwind, React-Hoo-Form ...",
     src: "/restaurant.png",
-    url: "https://next-js-wow-now.vercel.app",
-  },
-  {
-    title: "Clone Restaurant Role owner",
-    text: "has 3 roles such as end user, admin, owner restaurant. Technologo : Next.js, Spring boot, Mui, Taiwind, React-Hoo-Form ...",
-    src: "/admin-restaurant.png",
     url: "https://next-js-wow-now.vercel.app",
   },
   {
@@ -190,9 +190,9 @@ export const NavLinks = [
     icon: RxDashboard,
     link: "/my-projects",
   },
-  {
-    name: "/contact-me",
-    icon: RxClipboard,
-    link: "/contact-me",
-  },
+  // {
+  //   name: "/contact-me",
+  //   icon: RxClipboard,
+  //   link: "/contact-me",
+  // },
 ];

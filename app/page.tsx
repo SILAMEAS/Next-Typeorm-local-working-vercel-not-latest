@@ -19,8 +19,8 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-gray-200 hidden md:block">
-            Hello, I`m Sila developer!. You can contact me if you want to build
-            your website
+            Hello, I`m Sila. My experience is 2 years with web development. You can contact me if you want to build
+            your website for your business.
           </p>
           <div className="flex-col md:flex-row hidden md:flex gap-5">
             <Link
@@ -36,13 +36,13 @@ export default function Home() {
               <div className="absolute rounded-[20px] z-[1] bg-white inset-0 opacity-0 group-hver:opacity-20" />
               My projects
             </Link>
-            <Link
-              href="/contact-me"
-              className="rounded-[20px] group relative bg-trasparent border border-white px-5 py-3 text-lg text-white max-w-[200px]"
-            >
-              <div className="absolute rounded-[20px] z-[1] bg-white inset-0 opacity-0 group-hver:opacity-20" />
-              Contact me
-            </Link>
+            {/*<Link*/}
+            {/*  href="/contact-me"*/}
+            {/*  className="rounded-[20px] group relative bg-trasparent border border-white px-5 py-3 text-lg text-white max-w-[200px]"*/}
+            {/*>*/}
+            {/*  <div className="absolute rounded-[20px] z-[1] bg-white inset-0 opacity-0 group-hver:opacity-20" />*/}
+            {/*  Contact me*/}
+            {/*</Link>*/}
           </div>
         </div>
       </div>
