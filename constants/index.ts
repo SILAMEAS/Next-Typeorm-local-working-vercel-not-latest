@@ -1,4 +1,4 @@
-import { RxClipboard, RxDashboard, RxHome, RxPerson } from "react-icons/rx";
+import { RxDashboard, RxHome, RxPerson } from "react-icons/rx";
 
 export const SkillData = [
   {
@@ -171,6 +171,12 @@ export const Projects = [
     text: "Farmskin Cambodia is real application e-commerce website. Using Next.js Mui Swiper Spring boot",
     src: "/admin-farmskin.png",
     url: "https://admin.farmskinkh.com/login",
+  },
+  {
+    title: "Best Configruration Nestjs-TypeOrm",
+    text: "swagger/authentication/handleManyRequest/pagination",
+    src: "/typeorm-nest.jpg",
+    url: "https://nest-typeorm-auth-pagination.onrender.com/api",
   },
 ];
 

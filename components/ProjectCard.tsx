@@ -48,7 +48,9 @@ const ProjectCard = ({ image, title, text, url }: Props) => {
 
           <div className="flex flex-col gap-10 py-3 z-[30]">
             <h1 className="text-whote text-xl font-semibold ">{title}</h1>
-            <p className="text-gray-200 text-[14px] w-auto break-words">sdfds{text}</p>
+            <p className="text-gray-200 text-[14px] w-auto break-words">
+              {text}
+            </p>
           </div>
           <a href={url ?? "#"} target="_blank">
             visit website
