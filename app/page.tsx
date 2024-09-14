@@ -5,10 +5,13 @@ import {useEffect, useState} from "react";
 import {ProfileDto} from "@/db/dto/ProfileDto";
 import axios from "axios";
 import {Loading} from "@/components/Loading";
-
+import {Edit} from "lucide-react";
+import {useModal} from "@/hooks/store/use-modal-store";
+import {ActionTooltip} from "@/components/action-tooltip";
 export default function Home() {
     const [profile, setProfile] = useState<ProfileDto | null>(null);
     const [isLoading, setLoading] = useState<boolean>(false);
+    const { onOpen } = useModal();
     const getData = async () => {
         await fetch('/api/users')
             .then((res) => res.json())
@@ -72,12 +75,24 @@ export default function Home() {
                 <div className={'flex flex-col space-y-3'}>
                     <Image src="/profile.png" alt="cliff" width={540} height={480}/>
                     <p className="text-gray-200 visible md:invisible ">
-                        {profile?.description}
+                        {profile?.description}    <ActionTooltip label={"Edit"}>
+                        <Edit
+                            onClick={()=>onOpen('editTitle')}
+                            className={
+                                "hidden group-hover:block w-4 h-4 text-zinc-500 hover:to-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
+                            }
+                        />
+                    </ActionTooltip>
                     </p>
                     <div
                         className="pl-20 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-[10] max-w-[750px] invisible md:visible">
                         <h1 className="text-[50px] text-white font-semibold">
-                            {profile?.title}
+                            {profile?.title}  <Edit
+                            onClick={()=>onOpen('editTitle')}
+                            className={
+                                "text-zinc-300 inline"
+                            }
+                        />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
               {" "}
                                 {profile?.mainTile}
