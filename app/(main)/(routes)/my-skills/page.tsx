@@ -2,7 +2,7 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { SkillData } from "@/constants";
+import { SkillData } from "@/constants/constants";
 import Image from "next/image";
 import { Autoplay } from "swiper/modules";
 

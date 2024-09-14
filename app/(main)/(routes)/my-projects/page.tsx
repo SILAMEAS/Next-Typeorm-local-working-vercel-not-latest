@@ -1,7 +1,8 @@
 "use client";
 
+
+import {Projects} from '@/constants/constants';
 import ProjectCard from "@/components/ProjectCard";
-import { Projects } from "@/constants";
 
 const Page = () => {
   return (
