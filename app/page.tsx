@@ -1,14 +1,33 @@
 "use client";
-
 import Image from "next/image";
 import Link from "next/link";
+import {useEffect, useState} from "react";
+import {ProfileDto} from "@/db/dto/ProfileDto";
 
 export default function Home() {
-  return (
-    <main className="w-screen h-screen relative">
-      <div
-        className="flex items-center w-full h-full bg-cover bg-center"
-        style={{ backgroundImage: "url(/main-bg.webp)" }}
+    const [profile, setProfile] = useState<ProfileDto|null>(null);
+    const [isLoading, setLoading] = useState<boolean>(false);
+    useEffect(() => {
+        setLoading(true);
+        fetch('/api/users')
+            .then((res) => res.json())
+            .then((data) => {
+                const {id,...res}=data[0];
+                setProfile(res)
+                setLoading(false);
+            });
+    }, []);
+    if(isLoading||!profile) {
+        return <div className='flex items-center justify-center min-h-screen z-40'>
+            <div className="w-8 h-8 border-4 border-blue-200 rounded-full animate-spin border-top-color:transparent"></div>
+            <p className="ml-2"> loading profile ...</p>
+        </div>
+    }
+    return (
+        <main className="w-screen h-screen relative">
+            <div
+                className="flex items-center w-full h-full bg-cover bg-center"
+                style={{backgroundImage: "url(/main-bg.webp)" }}
       >
 
       </div>
@@ -45,16 +64,14 @@ export default function Home() {
             <div className={'flex flex-col space-y-3'}>
                 <Image src="/profile.png" alt="cliff" width={540} height={480}/>
                 <p className="text-gray-200 visible md:invisible ">
-                    Hello, I`m Sila. My experience is 2 years with web development. You can contact me if you want to
-                    build
-                    your website for your business.
+                    {profile?.description}
                 </p>
                 <div className="pl-20 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-[10] max-w-[750px] invisible md:visible">
                     <h1 className="text-[50px] text-white font-semibold">
-                        Make anything possible with
+                        {profile?.title}
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-red-500">
               {" "}
-                            Web Development
+                            {profile?.mainTile}
             </span>
                     </h1>
                     <p className="text-gray-200  md:block">
