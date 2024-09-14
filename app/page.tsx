@@ -3,29 +3,23 @@ import Image from "next/image";
 import Link from "next/link";
 import {useEffect, useState} from "react";
 import {ProfileDto} from "@/db/dto/ProfileDto";
-import axios from "axios";
 import {Loading} from "@/components/Loading";
 import {Edit} from "lucide-react";
 import {useModal} from "@/hooks/store/use-modal-store";
 import {ActionTooltip} from "@/components/action-tooltip";
+
 export default function Home() {
-    const [profile, setProfile] = useState<ProfileDto | null>(null);
+    const [profile, setProfile] = useState<ProfileDto | undefined>(undefined);
     const [isLoading, setLoading] = useState<boolean>(false);
     const { onOpen } = useModal();
     const getData = async () => {
-        await fetch('/api/users')
+        await fetch('/api/profiles')
             .then((res) => res.json())
             .then((data) => {
                 const {id, ...res} = data[0];
                 setProfile(res)
                 setLoading(false);
             });
-    }
-    const update = async () => {
-        await axios.patch("/api/users", {
-            profile,
-        });
-        await getData();
     }
     useEffect(() => {
         setLoading(true);
@@ -77,7 +71,7 @@ export default function Home() {
                     <p className="text-gray-200 visible md:invisible ">
                         {profile?.description}    <ActionTooltip label={"Edit"}>
                         <Edit
-                            onClick={()=>onOpen('editTitle')}
+                            onClick={()=>onOpen('editTitle',{profile})}
                             className={
                                 "hidden group-hover:block w-4 h-4 text-zinc-500 hover:to-zinc-600 dark:text-zinc-400 dark:hover:text-zinc-300 transition"
                             }
@@ -88,7 +82,7 @@ export default function Home() {
                         className="pl-20 md:pl-40 pb-56 md:pb-20 flex flex-col gap-5 z-[10] max-w-[750px] invisible md:visible">
                         <h1 className="text-[50px] text-white font-semibold">
                             {profile?.title}  <Edit
-                            onClick={()=>onOpen('editTitle')}
+                            onClick={()=>onOpen('editTitle', {profile})}
                             className={
                                 "text-zinc-300 inline"
                             }

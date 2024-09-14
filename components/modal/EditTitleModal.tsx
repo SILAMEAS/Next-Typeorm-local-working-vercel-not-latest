@@ -12,28 +12,23 @@ import {useRouter} from "next/navigation";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
     DialogFooter,
     DialogHeader,
     DialogTitle,
 } from "@/components/ui/dialog";
-
+import qs from "query-string";
 const formSchema = z.object({
-    name: z.string().min(1, {
-        message: "Server is required",
-    }),
-    imageUrl: z.string().min(1, {
-        message: "image is required",
+    title: z.string().min(1, {
+        message: "Title is required",
     }),
 });
 const EditTitleModal = () => {
-    const {type,isOpen,onClose}=useModal();
+    const {type,isOpen,onClose,data}=useModal();
     const isModalOpen=isOpen&&type==='editTitle';
     const form = useForm({
         resolver: zodResolver(formSchema),
         defaultValues: {
-            name: "",
-            imageUrl: "",
+            title: "",
         },
     });
     const router = useRouter();
@@ -43,9 +38,13 @@ const EditTitleModal = () => {
         onClose()
     }
     const onSubmit = async (value: z.infer<typeof formSchema>) => {
-        await axios.patch("/api/users", value);
+        const url=qs.stringifyUrl({
+            url:`/api/profiles/1`,
+        })
+        await axios.patch(url, value);
         form.reset();
-        router.refresh();
+        // router.refresh();
+        window.location.reload();
         handleClose();
     };
 
@@ -54,12 +53,9 @@ const EditTitleModal = () => {
             <DialogContent className={"bg-white text-black p-0 overflow-hidden"}>
                 <DialogHeader className={"py-8 px-6"}>
                     <DialogTitle className={"text-2xl text-center font-bold"}>
-                        Customize your server
+                        Customize your Title
                     </DialogTitle>
-                    <DialogDescription className={"text-center text-zinc-500"}>
-                        Give your server a personality with a name and an image. You can
-                        always change it later.
-                    </DialogDescription>
+
                 </DialogHeader>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -73,7 +69,7 @@ const EditTitleModal = () => {
                                                 "uppercase text-xs font-bold text-zinc-500 dark:text-secondary/700"
                                             }
                                         >
-                                            Server Name
+                                            Title
                                         </FormLabel>
                                         <FormControl>
                                             <Input
@@ -81,19 +77,19 @@ const EditTitleModal = () => {
                                                 className={
                                                     "bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
                                                 }
-                                                placeholder={"Enter your server name"}
+                                                placeholder={"Enter your title"}
                                                 {...field}
                                             />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
                                 )}
-                                name={"name"}
+                                name={"title"}
                             />
                         </div>
                         <DialogFooter className={"bg-gray-100 px-6 py-4"}>
                             <Button disabled={loading} variant={"default"} type={"submit"}>
-                                Create
+                                Update Title
                             </Button>
                         </DialogFooter>
                     </form>
