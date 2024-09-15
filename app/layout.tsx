@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navbar from '@/components/Navbar'
-import Navigation from '@/components/Navigation'
+import Navbar from '@/components/header/Navbar'
+import Navigation from '@/components/navigation/Navigation'
 import {ModalProvider} from "@/components/providers/modal-provider";
 import {ThemeProvider} from "@/components/providers/theme-provider";
 
