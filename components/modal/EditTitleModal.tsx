@@ -8,18 +8,14 @@ import {z} from "zod";
 import axios from "axios";
 import {useForm} from "react-hook-form";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {useRouter} from "next/navigation";
-import {
-    Dialog,
-    DialogContent,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-} from "@/components/ui/dialog";
+import {Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle,} from "@/components/ui/dialog";
 import qs from "query-string";
+
 const formSchema = z.object({
     title: z.string().min(1, {
         message: "Title is required",
+    }).max(28, {
+        message: "Title is too long",
     }),
 });
 const EditTitleModal = () => {
@@ -31,7 +27,6 @@ const EditTitleModal = () => {
             title: "",
         },
     });
-    const router = useRouter();
     const loading = form.formState.isSubmitting;
     const handleClose=()=>{
         form.reset();
@@ -47,6 +42,12 @@ const EditTitleModal = () => {
         window.location.reload();
         handleClose();
     };
+    React.useEffect(()=>{
+        if(data.profile?.title){
+            form.setValue('title',data.profile.title)
+        }
+
+    },[data,form])
 
     return (
         <Dialog open={isModalOpen} onOpenChange={handleClose}>
@@ -89,7 +90,9 @@ const EditTitleModal = () => {
                         </div>
                         <DialogFooter className={"bg-gray-100 px-6 py-4"}>
                             <Button disabled={loading} variant={"default"} type={"submit"}>
-                                Update Title
+                                {
+                                    loading?"loading ...":"  Update Title"
+                                }
                             </Button>
                         </DialogFooter>
                     </form>
