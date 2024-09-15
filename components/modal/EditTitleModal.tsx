@@ -36,11 +36,11 @@ const EditTitleModal = () => {
         const url=qs.stringifyUrl({
             url:`/api/profiles/1`,
         })
-        await axios.patch(url, value);
-        form.reset();
-        // router.refresh();
-        window.location.reload();
-        handleClose();
+        await axios.put(url, value).then(()=>{
+            form.reset();
+            window.location.reload();
+            handleClose();
+        });
     };
     React.useEffect(()=>{
         if(data.profile?.title){

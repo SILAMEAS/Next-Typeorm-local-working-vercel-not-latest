@@ -2,7 +2,7 @@ import {AppDataSource, checkDBConnection} from "@/db/typeorm.config";
 import {Profile} from "@/db/entities/Profile";
 import {NextResponse} from "next/server";
 
-export async function PATCH(  req: Request,
+export async function PUT(  req: Request,
                               { params }: { params: { profileId: string } }) {
     try {
         await checkDBConnection();
@@ -16,10 +16,10 @@ export async function PATCH(  req: Request,
         if (profile) {
             profile.title = reqBody.title;
             await userRepository.save(profile);
+            return NextResponse.json(profile);
         } else {
-            console.log("User not found");
+            return NextResponse.json("User not found");
         }
-        return NextResponse.json(profile);
     } catch (error) {
         return NextResponse.error();
     }
